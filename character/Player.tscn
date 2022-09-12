@@ -246,7 +246,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
 animation = "idle"
-frame = 6
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -258,5 +258,18 @@ shape = SubResource( 35 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 position = Vector2( 0.5, 4.5 )
 shape = SubResource( 50 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = 1
+limit_top = 1
+limit_right = 700
+limit_bottom = 300
+limit_smoothed = true
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_right = 0.4
+editor_draw_screen = false
 
 [connection signal="area_entered" from="HitArea" to="." method="_on_HitArea_area_entered"]
