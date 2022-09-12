@@ -22,6 +22,19 @@ tile_data = PoolIntArray( -65540, 19, 65537, -65539, 19, 65537, -65538, 19, 6553
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 104, 176 )
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = 1
+limit_top = 1
+limit_right = 700
+limit_bottom = 300
+limit_smoothed = true
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_right = 0.4
+editor_draw_screen = false
+
 [node name="Fruits" type="Node2D" parent="."]
 
 [node name="Strawberry" parent="Fruits" instance=ExtResource( 2 )]
