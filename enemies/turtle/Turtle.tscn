@@ -1,11 +1,11 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://enemies/animation/Turtle/Idle 2 (44x26).png" type="Texture" id=1]
 [ext_resource path="res://enemies/animation/Turtle/Idle 1 (44x26).png" type="Texture" id=2]
 [ext_resource path="res://enemies/animation/Turtle/Hit (44x26).png" type="Texture" id=3]
 [ext_resource path="res://enemies/animation/Turtle/Spikes out (44x26).png" type="Texture" id=4]
 [ext_resource path="res://enemies/animation/Turtle/Spikes in (44x26).png" type="Texture" id=5]
-[ext_resource path="res://enemies/scripts/enemy.gd" type="Script" id=6]
+[ext_resource path="res://enemies/turtle/turtle.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 3 )
@@ -231,13 +231,16 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=51]
-extents = Vector2( 14.5, 10 )
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 14.5, 5.5 )
 
-[sub_resource type="RectangleShape2D" id=52]
-extents = Vector2( 14.5, 10 )
+[sub_resource type="RectangleShape2D" id=54]
+extents = Vector2( 17.5, 10 )
 
-[node name="Turtle" type="Area2D" groups=["enemies"]]
+[sub_resource type="RectangleShape2D" id=55]
+extents = Vector2( 20.5, 10 )
+
+[node name="Turtle" type="KinematicBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource( 6 )
@@ -245,15 +248,29 @@ script = ExtResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 29 )
 animation = "idle_1"
-frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.5, 3 )
-shape = SubResource( 51 )
+position = Vector2( 0.5, 7.5 )
+shape = SubResource( 53 )
 
-[node name="Hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+[node name="SpikeArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeArea"]
 position = Vector2( 0.5, 3 )
-shape = SubResource( 52 )
+shape = SubResource( 54 )
+
+[node name="BodyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea"]
+position = Vector2( 0.5, 3 )
+shape = SubResource( 55 )
+
+[node name="FloorChecker" type="RayCast2D" parent="."]
+position = Vector2( -15, 2 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 8
+
+[connection signal="body_entered" from="SpikeArea" to="." method="_on_SpikeArea_body_entered"]
+[connection signal="body_entered" from="BodyArea" to="." method="_on_BodyArea_body_entered"]

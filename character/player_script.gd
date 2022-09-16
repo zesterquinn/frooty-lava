@@ -27,11 +27,8 @@ func _physics_process(delta: float) -> void:
 	if(!is_hit):
 		velocity = move_and_slide(velocity, Vector2.UP)
 
-func _on_HitArea_area_entered(area: Area2D) -> void:
-	if(!area.is_in_group("enemies")):
-		return
-
-	var knockback := 1500.0
+func hit_by_enemy() -> void:
+	var knockback := 2500.0
 
 	is_hit = true
 
@@ -39,6 +36,7 @@ func _on_HitArea_area_entered(area: Area2D) -> void:
 		knockback = -knockback
 
 	velocity.x = lerp(velocity.x, knockback, 1)
+	velocity.y = 0
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 	yield(get_tree().create_timer(0.2), "timeout")
