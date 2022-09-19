@@ -28,15 +28,18 @@ func _physics_process(delta: float) -> void:
 		velocity = move_and_slide(velocity, Vector2.UP)
 
 func hit_by_enemy() -> void:
-	var knockback := 2500.0
+	if(is_hit):
+		return
+
+	var knockback := 1000.0
 
 	is_hit = true
 
 	if(_animated_sprite.flip_h == false):
 		knockback = -knockback
 
-	velocity.x = lerp(velocity.x, knockback, 1)
-	velocity.y = 0
+	velocity.x =  lerp(velocity.x, knockback, 1)
+	velocity.y = lerp(velocity.y, -900.0, .6)
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 	yield(get_tree().create_timer(0.2), "timeout")

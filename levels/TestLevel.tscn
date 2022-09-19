@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/world_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://fruits/strawberry/Strawberry.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://levels/Props/Scenes/StartFlagScene.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/Props/Scenes/CheckpointFlagScene.tscn" type="PackedScene" id=12]
 [ext_resource path="res://levels/Props/Scenes/TropyScene.tscn" type="PackedScene" id=13]
+[ext_resource path="res://enemies/trunk/Trunk.tscn" type="PackedScene" id=14]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -63,6 +64,9 @@ tile_data = PoolIntArray( -65540, 19, 65537, -65539, 19, 65537, -65538, 19, 6553
 
 [node name="Turtle" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 385, 179 )
+
+[node name="Node2D" parent="Enemies" instance=ExtResource( 14 )]
+position = Vector2( 429, 251 )
 
 [node name="Fruits" type="Node2D" parent="."]
 

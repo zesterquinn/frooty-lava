@@ -26,5 +26,6 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func _on_SpikeArea_body_entered(body: Node) -> void:
+	print_debug(body.name)
 	if(body.name == 'Player' and body.has_method('hit_by_enemy')):
 		body.call('hit_by_enemy')
