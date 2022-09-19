@@ -7,9 +7,10 @@
 [node name="MainScene" type="Node"]
 
 [node name="Level1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 96 )
 
 [node name="Level2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -400 )
+position = Vector2( 0, -480 )
 
 [node name="Level3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -800 )
+position = Vector2( 0, -1040 )
