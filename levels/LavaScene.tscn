@@ -62,6 +62,8 @@ animations = [ {
 extents = Vector2( 16, 16 )
 
 [node name="Lava" type="Area2D"]
+collision_layer = 32
+collision_mask = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
