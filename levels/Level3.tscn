@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/world_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://enemies/turtle/Turtle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://character/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fruits/pineapple/Pineapple.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/Props/Scenes/StartFlagScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/bg.tres" type="TileSet" id=6]
@@ -269,21 +268,3 @@ position = Vector2( 744, 304 )
 
 [node name="Trophy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 40, 0 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 744, 320 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 1, 5 )
-current = true
-zoom = Vector2( 0.5, 0.5 )
-limit_left = 1
-limit_right = 800
-limit_bottom = 400
-limit_smoothed = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_left = 0.4
-drag_margin_right = 0.4
-editor_draw_screen = false

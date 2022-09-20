@@ -207,4 +207,4 @@ position = Vector2( 432, 208 )
 position = Vector2( 640, 0 )
 
 [node name="Trunk5" parent="TileMap" instance=ExtResource( 4 )]
-position = Vector2( 144, 48 )
+position = Vector2( 216, 304 )
